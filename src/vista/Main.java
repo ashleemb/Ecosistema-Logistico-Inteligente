@@ -1,6 +1,5 @@
 package vista;
 
-
 import controlador.VehiculoControlador;
 import modelo.CamionAutonomo;
 import modelo.DronDeTransporte;
