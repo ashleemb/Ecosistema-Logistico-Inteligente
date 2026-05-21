@@ -39,5 +39,34 @@ public class VehiculoControlador {
         listaIDs.forEach(id -> System.out.println(id));
     }
 
+    public void contarVehiculos(){
+        System.out.println("\n~~~~~RECUENTO DE VEHICULOS~~~~~");
+        long totalVehiculos = repo.obtenerVehiculos().stream().count();
+        System.out.println("Total de vehiculos registrados: " + totalVehiculos);
+    }
 
+    public void buscarPorTipo(String tipoBuscado){
+        System.out.println("\n~~~~~BÚSQUEDA DE VEHICULOS: " + tipoBuscado.toUpperCase() + " ~~~~~");
+        repo.obtenerVehiculos().stream().
+                filter(vehiculo -> vehiculo.getTipo().equalsIgnoreCase(tipoBuscado)).
+                forEach(vehiculo -> System.out.
+                        println("Tipo: " + vehiculo.getTipo() + " | ID: " + vehiculo.getId()));
+    }
+
+    public void ordenarPorID(){
+        System.out.println("\n~~~~~FLOTA ORDENADA POR ID~~~~~");
+        repo.obtenerVehiculos().stream().
+                sorted(Comparator.comparing(vehiculo -> vehiculo.getId().
+                        substring(2))).//Para que no interfiera el prefijo al ordenar.
+                forEach(vehiculo -> System.out.println("ID: " + vehiculo.getId()
+                + " | Tipo: [" + vehiculo.getTipo() + "]"));
+    }
+
+    public void ordenarPorTipo(){
+        System.out.println("\n~~~~~FLOTA ORDENADA POR TIPO (A-Z)~~~~~");
+        repo.obtenerVehiculos().stream().
+                sorted(Comparator.comparing(Vehiculo::getTipo)).
+                forEach(vehiculo -> System.out.println("Tipo: [" + vehiculo.getTipo() + "]"
+                        + " | ID: " + vehiculo.getId()));
+    }
 }
