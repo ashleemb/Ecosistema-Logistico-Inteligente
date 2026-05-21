@@ -13,7 +13,8 @@ public class CamionAutonomo extends Vehiculo{
     /**
      * Constructor de la Clase CamionAutonomo.
      * Llama al constructor de la superclase para asegurarse
-     * de que el camión reciba su ID correspondiente.
+     * de que el camión reciba su ID correspondiente, definiendo el tipo
+     * como "Camion" y el prefijo como "C-".
      */
     public CamionAutonomo() {
         super("Camion", "C-");
@@ -21,7 +22,8 @@ public class CamionAutonomo extends Vehiculo{
 
     /**
      * Implementación del patrón de movimiento específico para el camión.
-     * Indica que el camión está circulando y utilizando su GPS.
+     * Imprime en consola un mensaje indicando que el camión está circulando
+     * por ruta sincronizando su identificador único y su GPS interno.
      */
     @Override
     public void patronMovimiento() {

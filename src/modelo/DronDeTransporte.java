@@ -13,15 +13,17 @@ public class DronDeTransporte extends Vehiculo implements IConectable {
     /**
      * Constructor de la Clase DronTransporte.
      * Llama al constructor de la superclase para asegurarse
-     * de que el dron reciba su ID correspondiente.
+     * de que el dron reciba su ID correspondiente, definiendo el tipo
+     * como "Dron" y el prefijo como "D-".
      */
     public DronDeTransporte(){
         super("Dron", "D-");
     }
 
     /**
-     * Implementación del movimiento del dron.
-     * Muestra el ID del vehículo y explica que despega.
+     * Implementación del movimiento específico del dron.
+     * Muestra en consola un mensaje indicando el identificador único del vehículo
+     * y que realiza un despegue vertical en línea recta.
      */
     @Override
     public void patronMovimiento() {
@@ -29,8 +31,9 @@ public class DronDeTransporte extends Vehiculo implements IConectable {
     }
 
     /**
-     * Implementación por la interfaz IConectable.
-     * Simula la conexión del dron con los satélites para obtener coordenadas.
+     * Implementación del método de la interfaz IConectable.
+     * Simula la conexión del dron con los satélites para obtener la actualización
+     * de sus coordenadas geográficas, utilizando su identificador único.
      */
     @Override
     public void sincronizarGPS(){

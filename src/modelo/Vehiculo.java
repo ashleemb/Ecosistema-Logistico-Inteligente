@@ -17,6 +17,8 @@ public abstract class Vehiculo {
     /**
      * Constructor de la clase Vehiculo.
      * Se encarga de llamar al método que asigna el ID único al crear la instancia.
+     * * @param tipo    El tipo de vehículo (ej. Auto, Moto, Barco).
+     * @param prefijo El prefijo de texto que se antepondrá al identificador numérico.
      */
     public Vehiculo(String tipo, String prefijo){
         this.tipo = tipo;
@@ -26,6 +28,7 @@ public abstract class Vehiculo {
     /**
      * Asigna el valor actual de nextId al vehículo y luego incrementa
      * el contador para la próxima instancia.
+     * * @param prefijo El prefijo que se utilizará para formatear el ID.
      */
     private void setId(String prefijo){
         this.id= prefijo + String.format("%03d", nextId);
@@ -46,6 +49,10 @@ public abstract class Vehiculo {
         return id;
     }
 
+    /**
+     * Obtiene el tipo de vehículo registrado.
+     * * @return Una cadena de texto con el tipo de vehículo.
+     */
     public String getTipo(){
         return tipo;
     }
